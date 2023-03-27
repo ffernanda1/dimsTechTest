@@ -13,7 +13,7 @@ router.get('/', async function (req, res, next) {
   }
 });
 
-router.get('/id_product', async function (req, res, next) {
+router.get('/:id_product', async function (req, res, next) {
   try {
     console.log(req.params)
     const data = await models.products.findOne({
@@ -41,7 +41,7 @@ router.post('/', async function (req, res, next) {
   }
 });
 
-router.put('/id_product', async function (req, res, next) {
+router.put('/:id_product', async function (req, res, next) {
   try {
     const { product_name, price} = req.body
     const data = await models.products.update({ product_name, price},
@@ -62,7 +62,7 @@ router.put('/id_product', async function (req, res, next) {
   }
 });
 
-router.delete('/id_product', async function (req, res, next) {
+router.delete('/:id_product', async function (req, res, next) {
   try {
     const data = await models.products.destroy({
       where: {
